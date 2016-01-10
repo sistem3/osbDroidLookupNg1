@@ -1,5 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Audiowide");
 .starWarsLookup {
-  width: 100%; }
+  width: 100%;
+  position: relative;
+  background: #000; }
+  .starWarsLookup > .container h1 {
+    font-family: 'Audiowide', cursive;
+    color: #FFF;
+    font-size: 25px; }
 
 .starWarsLookup .btn-primary {
   background-color: #0285E3;
@@ -15,112 +22,6 @@
     margin-top: 2px; }
   .starWarsLookup .btn-primary:focus {
     outline: none; }
-
-.starWarsLookup {
-  position: relative;
-  background: #000;
-  /*background-image: url('/assets/images/directives/star-wars-lookup/background.jpg');*/
-  background-repeat: no-repeat;
-  background-size: 70% auto;
-  background-position: top center; }
-  .starWarsLookup > .container h1 {
-    color: #FFF;
-    font-size: 25px; }
-  .starWarsLookup--modal {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    background: rgba(0, 0, 0, 0.8);
-    color: #000; }
-    .starWarsLookup--modal--content {
-      width: 80%;
-      position: absolute;
-      top: 30px;
-      left: 50%;
-      margin-left: -40%;
-      background: #FFF;
-      padding-bottom: 20px;
-      z-index: 1; }
-      .starWarsLookup--modal--contentThumb {
-        padding: 0;
-        margin: 10px 0; }
-    .starWarsLookup--modal--closeBtn {
-      width: 30px;
-      height: 30px;
-      position: absolute;
-      top: -15px;
-      right: -15px;
-      background: #000;
-      border-radius: 50%;
-      border: 3px solid #fff;
-      z-index: 2; }
-      .starWarsLookup--modal--closeBtn > i {
-        font-size: 21px;
-        color: #FFF;
-        position: relative;
-        left: 4px;
-        top: 1px; }
-  .starWarsLookup--main__nav {
-    height: auto;
-    position: relative; }
-    .starWarsLookup--main__nav > ul li {
-      min-height: 220px;
-      position: relative; }
-    .starWarsLookup--main__nav > ul li div {
-      min-height: 200px;
-      position: relative;
-      background: #000;
-      color: #FFF;
-      border: 2px solid #FFF;
-      -webkit-box-sizing: border-box;
-      /* Safari/Chrome, other WebKit */
-      -moz-box-sizing: border-box;
-      /* Firefox, other Gecko */
-      box-sizing: border-box;
-      /* Opera/IE 8+ */ }
-    .starWarsLookup--main__nav > ul li div h2, .starWarsLookup--main__nav > ul li div p {
-      position: relative;
-      margin: 0;
-      padding: 10px;
-      z-index: 2; }
-    .starWarsLookup--main__nav > ul li img {
-      width: 100%;
-      height: auto;
-      position: absolute;
-      top: 0;
-      z-index: 1;
-      opacity: 0.5; }
-  .starWarsLookup--sub__nav {
-    color: #FFF; }
-    .starWarsLookup--sub__nav > li div button {
-      width: 100%;
-      margin-bottom: 10px; }
-  .starWarsLookup--main__content {
-    position: relative;
-    z-index: 1;
-    color: #000; }
-    .starWarsLookup--main__content > h2 {
-      color: #FFF; }
-    .starWarsLookup--main__content > ul li {
-      min-height: 250px;
-      position: relative;
-      margin-bottom: 10px; }
-      .starWarsLookup--main__content > ul li > article {
-        width: auto;
-        min-height: 250px;
-        background: #FFF;
-        padding-bottom: 10px;
-        position: relative; }
-        .starWarsLookup--main__content > ul li > article > div button {
-          vertical-align: bottom;
-          /*width: 100%;
-          position: absolute;
-          bottom: 10px;
-          left: 0;
-          margin: 0 10px;*/ }
 
 @font-face {
   font-family: 'star-wars-icons';
@@ -161,5 +62,104 @@
 
 .icon-wookie:before {
   content: '\e606'; }
+
+.starWarsLookup--modal {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.8);
+  color: #000; }
+  .starWarsLookup--modal--content {
+    width: 80%;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    margin-left: -40%;
+    background: #FFF;
+    padding-bottom: 20px;
+    z-index: 1; }
+    .starWarsLookup--modal--contentThumb {
+      padding: 0;
+      margin: 10px 0; }
+  .starWarsLookup--modal--closeBtn {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: #000;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    z-index: 2; }
+    .starWarsLookup--modal--closeBtn > i {
+      font-size: 21px;
+      color: #FFF;
+      position: relative;
+      left: 4px;
+      top: 1px; }
+
+.starWarsLookup--main__nav {
+  height: auto;
+  position: relative; }
+  .starWarsLookup--main__nav > ul li {
+    min-height: 220px;
+    position: relative; }
+  .starWarsLookup--main__nav > ul li div {
+    min-height: 200px;
+    position: relative;
+    background: #000;
+    color: #FFF;
+    border: 2px solid #FFF;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */ }
+  .starWarsLookup--main__nav > ul li div h2, .starWarsLookup--main__nav > ul li div p {
+    position: relative;
+    margin: 0;
+    padding: 10px;
+    z-index: 2; }
+  .starWarsLookup--main__nav > ul li img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    opacity: 0.5; }
+
+.starWarsLookup--sub__nav {
+  color: #FFF; }
+  .starWarsLookup--sub__nav > li div button {
+    width: 100%;
+    margin-bottom: 10px; }
+
+.starWarsLookup--main__content {
+  position: relative;
+  z-index: 1;
+  color: #000; }
+  .starWarsLookup--main__content > h2 {
+    color: #FFF; }
+  .starWarsLookup--main__content > ul li {
+    min-height: 250px;
+    position: relative;
+    margin-bottom: 10px; }
+    .starWarsLookup--main__content > ul li > article {
+      width: auto;
+      min-height: 250px;
+      background: #FFF;
+      padding-bottom: 10px;
+      position: relative; }
+      .starWarsLookup--main__content > ul li > article > div button {
+        vertical-align: bottom;
+        /*width: 100%;
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        margin: 0 10px;*/ }
 
 /*# sourceMappingURL=osbDroidLookup.css.map */

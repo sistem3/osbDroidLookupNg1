@@ -1,0 +1,36 @@
+.starWarsLookup--main__nav {
+  height: auto;
+  position: relative;
+
+  > ul li {
+    min-height: 220px;
+    position: relative;
+  }
+
+  > ul li div {
+    min-height: 200px;
+    position: relative;
+    background: #000;
+    color: #FFF;
+    border: 2px solid #FFF;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+  }
+
+  > ul li div h2, > ul li div p {
+    position: relative;
+    margin: 0;
+    padding: 10px;
+    z-index: 2;
+  }
+
+  > ul li img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    opacity: 0.5;
+  }
+}

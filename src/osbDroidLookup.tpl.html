@@ -1,4 +1,4 @@
-<div class="starWarsLookup row">
+<div class="starWarsLookup">
     <section ng-if="starWarsLookup.modal.open" class="starWarsLookup--modal">
       <div class="starWarsLookup--modal--content">
         <div ng-click="starWarsLookup.modal.closeModal()" class="starWarsLookup--modal--closeBtn"><i class="fa fa-close"></i></div>
@@ -16,7 +16,7 @@
     </section>
 
     <section class="container">
-        <h1 class="headerstyle"><i class="icon-trooper"></i> Are these the Droids you are looking for?</h1>
+        <h1 class="headerstyle"><i class="sw-icon icon-trooper"></i> Are these the Droids you are looking for?</h1>
         <div class="row starWarsLookup--main__nav" ng-if="!starWarsLookup.sectionLoaded">
             <ul class="list-unstyled">
                 <li ng-repeat="sections in starWarsLookup.sections" class="col-xs-12 col-md-4">
@@ -49,7 +49,7 @@
                             <img class="pull-right img-rounded" ng-src="{{items.googleData.pagemap.cse_thumbnail[0].src}}" />
                         </div>-->
                         <div ng-switch="starWarsLookup.sectionName" class="item item-body">
-                            <div ng-switch-when="Planets">
+                            <div class="row" ng-switch-when="Planets">
                                 <div class="col-md-6">
                                     <p><strong>Climate:</strong> <span ng-bind="items.climate"></span></p>
                                     <p><strong>Diamter:</strong> <span ng-bind="items.diameter"></span></p>
@@ -63,7 +63,7 @@
                                     <p ng-bind-html="items.googleData.htmlSnippet"></p>
                                 </div>
                             </div>
-                            <div ng-switch-when="People">
+                            <div class="row" ng-switch-when="People">
                                 <div class="col-md-6">
                                     <p><strong>Height:</strong> <span ng-bind="items.height"></span></p>
                                     <p><strong>Gender:</strong> <span ng-bind="items.gender"></span></p>

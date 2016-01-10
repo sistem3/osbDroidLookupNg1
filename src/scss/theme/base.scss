@@ -1,3 +1,11 @@
 .starWarsLookup {
   width: 100%;
+  position: relative;
+  background: $color-black;
+
+  > .container h1 {
+    font-family: 'Audiowide', cursive;
+    color: $color-white;
+    font-size: 25px;
+  }
 }

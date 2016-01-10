@@ -2,7 +2,7 @@ angular.module('osb-droid-lookup-template', ['osbDroidLookup.tpl.html']);
 
 angular.module("osbDroidLookup.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("osbDroidLookup.tpl.html",
-    "<div class=\"starWarsLookup row\">\n" +
+    "<div class=\"starWarsLookup\">\n" +
     "    <section ng-if=\"starWarsLookup.modal.open\" class=\"starWarsLookup--modal\">\n" +
     "      <div class=\"starWarsLookup--modal--content\">\n" +
     "        <div ng-click=\"starWarsLookup.modal.closeModal()\" class=\"starWarsLookup--modal--closeBtn\"><i class=\"fa fa-close\"></i></div>\n" +
@@ -20,7 +20,7 @@ angular.module("osbDroidLookup.tpl.html", []).run(["$templateCache", function($t
     "    </section>\n" +
     "\n" +
     "    <section class=\"container\">\n" +
-    "        <h1 class=\"headerstyle\"><i class=\"icon-trooper\"></i> Are these the Droids you are looking for?</h1>\n" +
+    "        <h1 class=\"headerstyle\"><i class=\"sw-icon icon-trooper\"></i> Are these the Droids you are looking for?</h1>\n" +
     "        <div class=\"row starWarsLookup--main__nav\" ng-if=\"!starWarsLookup.sectionLoaded\">\n" +
     "            <ul class=\"list-unstyled\">\n" +
     "                <li ng-repeat=\"sections in starWarsLookup.sections\" class=\"col-xs-12 col-md-4\">\n" +
@@ -53,7 +53,7 @@ angular.module("osbDroidLookup.tpl.html", []).run(["$templateCache", function($t
     "                            <img class=\"pull-right img-rounded\" ng-src=\"{{items.googleData.pagemap.cse_thumbnail[0].src}}\" />\n" +
     "                        </div>-->\n" +
     "                        <div ng-switch=\"starWarsLookup.sectionName\" class=\"item item-body\">\n" +
-    "                            <div ng-switch-when=\"Planets\">\n" +
+    "                            <div class=\"row\" ng-switch-when=\"Planets\">\n" +
     "                                <div class=\"col-md-6\">\n" +
     "                                    <p><strong>Climate:</strong> <span ng-bind=\"items.climate\"></span></p>\n" +
     "                                    <p><strong>Diamter:</strong> <span ng-bind=\"items.diameter\"></span></p>\n" +
@@ -67,7 +67,7 @@ angular.module("osbDroidLookup.tpl.html", []).run(["$templateCache", function($t
     "                                    <p ng-bind-html=\"items.googleData.htmlSnippet\"></p>\n" +
     "                                </div>\n" +
     "                            </div>\n" +
-    "                            <div ng-switch-when=\"People\">\n" +
+    "                            <div class=\"row\" ng-switch-when=\"People\">\n" +
     "                                <div class=\"col-md-6\">\n" +
     "                                    <p><strong>Height:</strong> <span ng-bind=\"items.height\"></span></p>\n" +
     "                                    <p><strong>Gender:</strong> <span ng-bind=\"items.gender\"></span></p>\n" +

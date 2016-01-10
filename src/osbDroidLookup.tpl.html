@@ -1,0 +1,131 @@
+<div class="starWarsLookup row">
+    <section ng-if="starWarsLookup.modal.open" class="starWarsLookup--modal">
+      <div class="starWarsLookup--modal--content">
+        <div ng-click="starWarsLookup.modal.closeModal()" class="starWarsLookup--modal--closeBtn"><i class="fa fa-close"></i></div>
+        <div class="col-md-12">
+          <div class="pull-left col-md-4 starwarslookup--modal--contentThumb">
+            <img ng-src="{{starWarsLookup.modal.modalThumb}}" class="img-rounded img-thumbnail">
+          </div>
+          <h2 ng-bind-html="starWarsLookup.modal.modalContent.title" class="col-md-8 pull-left"></h2>
+        </div>
+        <div class="col-md-8">
+          <div class="clearfix"></div>
+          <p ng-bind-html="starWarsLookup.modal.modalContent.extract"></p>
+        </div>
+      </div>
+    </section>
+    <section class="container">
+        <h1 class="headerstyle"><i class="icon-trooper"></i> Are these the Droids you are looking for?</h1>
+        <div class="starWarsLookup--main__nav" ng-if="!starWarsLookup.sectionLoaded">
+            <ul class="list-unstyled">
+                <li ng-repeat="sections in starWarsLookup.sections" class="col-xs-12 col-md-4">
+                    <div ng-click="starWarsLookup.getSectionData(sections)">
+                        <h2 class="headerstyle"><span ng-bind="sections.title"></span> <i class="{{sections.icon}}"></i></h2>
+                        <p ng-bind="sections.desc"></p>
+                        <img ng-src="{{sections.thumbnail}}" />
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div ng-if="starWarsLookup.sectionLoaded">
+            <ul class="list-unstyled starWarsLookup--sub__nav">
+                <li ng-repeat="sections in starWarsLookup.sections" class="col-md-2">
+                    <div ng-click="starWarsLookup.getSectionData(sections)">
+                        <button class="btn btn-primary"><span ng-bind="sections.title"></span> <i class="{{sections.icon}}"></i></button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+        <div ng-if="starWarsLookup.sectionLoaded" class="starWarsLookup--main__content">
+            <!--<h2 ng-bind="starWarsLookup.sectionName"></h2>-->
+            <div class="pull-right"></div>
+            <ul class="list-unstyled">
+                <li ng-repeat="items in starWarsLookup.sectionData" class="col-sm-4 col-md-4">
+                    <article class="container-fluid">
+                        <h3 ng-bind="items.name"></h3>
+                        <!--<div>
+                            <img class="pull-right img-rounded" ng-src="{{items.googleData.pagemap.cse_thumbnail[0].src}}" />
+                        </div>-->
+                        <div ng-switch="starWarsLookup.sectionName" class="item item-body">
+                            <div ng-switch-when="Planets">
+                                <div class="col-md-6">
+                                    <p><strong>Climate:</strong> <span ng-bind="items.climate"></span></p>
+                                    <p><strong>Diamter:</strong> <span ng-bind="items.diameter"></span></p>
+                                    <p><strong>Gravity:</strong> <span ng-bind="items.gravity"></span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><strong>Terrain:</strong> <span ng-bind="items.terrain"></span></p>
+                                    <p><strong>Rotation period:</strong> <span ng-bind="items.rotation_period"></span></p>
+                                </div>
+                                <div class="col-md-12" ng-if="items.googleData.htmlSnippet">
+                                    <p ng-bind-html="items.googleData.htmlSnippet"></p>
+                                </div>
+                            </div>
+                            <div ng-switch-when="People">
+                                <div class="col-md-6">
+                                    <p><strong>Height:</strong> <span ng-bind="items.height"></span></p>
+                                    <p><strong>Gender:</strong> <span ng-bind="items.gender"></span></p>
+                                    <p><strong>Birth year:</strong> <span ng-bind="items.birth_year"></span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><strong>Mass:</strong> <span ng-bind="items.mass"></span></p>
+                                    <p><strong>Hair color:</strong> <span ng-bind="items.hair_color"></span></p>
+                                    <p><strong>Skin color:</strong> <span ng-bind="items.skin_color"></span></p>
+                                </div>
+                                <div class="col-md-12" ng-if="items.googleData.htmlSnippet">
+                                    <p ng-bind-html="items.googleData.htmlSnippet"></p>
+                                </div>
+                            </div>
+                            <div ng-switch-when="Vehicles">
+                                <div class="col-md-6">
+                                    <p><strong>Crew:</strong> <span ng-bind="items.crew"></span></p>
+                                    <p><strong>Passengers:</strong> <span ng-bind="items.passengers"></span></p>
+                                    <p><strong>Model:</strong> <span ng-bind="items.model"></span></p>
+                                    <p><strong>Manufacturer:</strong> <span ng-bind="items.manufacturer"></span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><strong>Length:</strong> <span ng-bind="items.length"></span></p>
+                                    <p><strong>Cost:</strong> <span ng-bind="items.cost"></span></p>
+                                    <p><strong>Consumables:</strong> <span ng-bind="items.consumables"></span></p>
+                                </div>
+                                <div class="col-md-12" ng-if="items.googleData.htmlSnippet">
+                                    <p ng-bind-html="items.googleData.htmlSnippet"></p>
+                                </div>
+                            </div>
+                            <div ng-switch-when="Starships">
+                                <div class="col-md-6">
+                                    <p><strong>Crew:</strong> <span ng-bind="items.crew"></span></p>
+                                    <p><strong>Passengers:</strong> <span ng-bind="items.passengers"></span></p>
+                                    <p><strong>Model:</strong> <span ng-bind="items.model"></span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><strong>Manufacturer:</strong> <span ng-bind="items.manufacturer"></span></p>
+                                    <p><strong>Length:</strong> <span ng-bind="items.length"></span></p>
+                                </div>
+                                <div class="col-md-12" ng-if="items.googleData.htmlSnippet">
+                                    <p ng-bind-html="items.googleData.htmlSnippet"></p>
+                                </div>
+                            </div>
+                            <div ng-switch-when="Species">
+                                <p>C<strong>lassification:</strong> <span ng-bind="items.classification"></span></p>
+                                <p><strong>Designation:</strong> <span ng-bind="items.designation"></span></p>
+                                <p ng-if="items.language"><strong>Language:</strong> <span ng-bind="items.language"></span></p>
+                                <!--<p ng-if="items.homeworld"><strong>Homeworld:</strong> <span ng-bind="items.homeworld"></span></p>-->
+                                <p ng-if="items.average_height"><strong>Average height:</strong> <span ng-bind="items.average_height"></span></p>
+                                <div class="col-md-12" ng-if="items.googleData.htmlSnippet">
+                                    <p ng-bind-html="items.googleData.htmlSnippet"></p>
+                                </div>
+                            </div>
+                            <div ng-switch-when="Films">
+                                <p>Episode: <span ng-bind="items.episode_id"></span></p>
+                                <p>Director: <span ng-bind="items.director"></span></p>
+                            </div>
+                            <button class="btn btn-primary col-md-12" ng-click="starWarsLookup.getFurtherInfo(items.name)">More info <i class="fa fa-search"></i></button>
+                        </div>
+                    </article>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>

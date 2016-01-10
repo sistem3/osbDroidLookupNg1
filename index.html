@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="osbFilmTvGuide">
+<head>
+    <title>OSB Droid Lookup</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+
+    <!-- Src Test -->
+    <link rel="stylesheet" href="src/css/osbDroidLookup.css">
+    <!-- Dist Test -->
+    <!--<link rel="stylesheet" href="dist/osbDroidLookup.css">-->
+</head>
+
+<body>
+<div ng-view>
+    <osb-tv-film-guide></osb-tv-film-guide>
+</div>
+
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+<!-- Src Test -->
+<script src="src/osbDroidLookup.directive.js"></script>
+<script src="src/osbDroidLookup.directive.tpl.js"></script>
+<!-- Dist Test -->
+<!--<script src="dist/osbDroidLookup.js"></script>-->
+<script>
+    'use strict';
+    angular.module('osbDroidLookupDemo', ['ngSanitize', 'LocalStorageModule', 'sistem3.osb-droid-lookup'])
+            .config(function (localStorageServiceProvider) {
+                localStorageServiceProvider.setPrefix('osbDroidLookup');
+            });
+</script>
+</body>
+
+</html>

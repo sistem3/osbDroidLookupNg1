@@ -5,11 +5,11 @@ module.exports = function (grunt) {
   grunt.initConfig({
     html2js: {
       options: {
-        // custom options, see below
+        module: 'osb-droid-lookup-template'
       },
       main: {
         src: ['src/**/*.tpl.html'],
-        dest: 'src/osbTvFilmGuideTemplate.js'
+        dest: 'src/osbDroidLookup.directive.tpl.js'
       }
     },
     sass: {
@@ -18,7 +18,7 @@ module.exports = function (grunt) {
       },
       dist: {
         files: {
-          'src/css/osbTvFilmGuide.css': 'src/scss/osbTvFilmGuide.scss'
+          'src/css/osbDroidLookup.css': 'src/scss/osbDroidLookup.scss'
         }
       }
     },

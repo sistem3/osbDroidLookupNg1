@@ -14,9 +14,10 @@
         </div>
       </div>
     </section>
+
     <section class="container">
         <h1 class="headerstyle"><i class="icon-trooper"></i> Are these the Droids you are looking for?</h1>
-        <div class="starWarsLookup--main__nav" ng-if="!starWarsLookup.sectionLoaded">
+        <div class="row starWarsLookup--main__nav" ng-if="!starWarsLookup.sectionLoaded">
             <ul class="list-unstyled">
                 <li ng-repeat="sections in starWarsLookup.sections" class="col-xs-12 col-md-4">
                     <div ng-click="starWarsLookup.getSectionData(sections)">
@@ -27,7 +28,7 @@
                 </li>
             </ul>
         </div>
-        <div ng-if="starWarsLookup.sectionLoaded">
+        <div class="row" ng-if="starWarsLookup.sectionLoaded">
             <ul class="list-unstyled starWarsLookup--sub__nav">
                 <li ng-repeat="sections in starWarsLookup.sections" class="col-md-2">
                     <div ng-click="starWarsLookup.getSectionData(sections)">
@@ -37,7 +38,7 @@
             </ul>
         </div>
         <div class="clearfix"></div>
-        <div ng-if="starWarsLookup.sectionLoaded" class="starWarsLookup--main__content">
+        <div ng-if="starWarsLookup.sectionLoaded" class="row starWarsLookup--main__content">
             <!--<h2 ng-bind="starWarsLookup.sectionName"></h2>-->
             <div class="pull-right"></div>
             <ul class="list-unstyled">

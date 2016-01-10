@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('oneStepBeyondApp')
-  .directive('starWarsLookup', ['$http', '$q', 'preloader', function ($http, $q, preloader) {
+angular.module('sistem3.osb-droid-lookup', ['osb-droid-lookup-template'])
+  .directive('osbDroidLookup', ['$http', '$q', function ($http, $q) {
     return {
-      templateUrl: 'app/starWarsLookup/starWarsLookup.html',
+      templateUrl: 'osbDroidLookup.tpl.html',
       restrict: 'EA',
       link: function ($scope, element, attrs) {
         //console.log('Loading Star Wars Lookup directive');
@@ -15,11 +15,23 @@ angular.module('oneStepBeyondApp')
         $scope.starWarsLookup.hasLoaded = false;
         $scope.starWarsLookup.sectionLoaded = false;
         $scope.starWarsLookup.sections = [
-          {'title':'Planets','url':'planets','thumbnail':'http://osbproductions.co.uk/assets/images/directives/star-wars-lookup/planetsThumb.png','desc':'Find out more about the planets within the Star Wars franchise','icon':'fa fa-globe'},
-          {'title':'People','url':'people','thumbnail':'http://osbproductions.co.uk/assets/images/directives/star-wars-lookup/peopleThumb.png','desc':'Find out more about the individuals within the Star Wars franchise','icon':'icon-darth'},
+          {
+            'title':'Planets',
+            'url':'planets',
+            'thumbnail':'http://osbproductions.co.uk/assets/images/directives/star-wars-lookup/planetsThumb.png',
+            'desc':'Find out more about the planets within the Star Wars franchise',
+            'icon':'fa fa-globe'
+          },
+          {
+            'title':'People',
+            'url':'people',
+            'thumbnail':'http://osbproductions.co.uk/assets/images/directives/star-wars-lookup/peopleThumb.png',
+            'desc':'Find out more about the individuals within the Star Wars franchise',
+            'icon':'sw-icon icon-darth'
+          },
           {'title':'Vehicles','url':'vehicles','thumbnail':'http://osbproductions.co.uk/assets/images/directives/star-wars-lookup/vehiclesThumb.png','desc':'Find out more about the vehicles within the Star Wars franchise','icon':'fa fa-rebel'},
-          {'title':'Starships','url':'starships','thumbnail':'http://osbproductions.co.uk/assets/images/directives/star-wars-lookup/shipsThumb.png','desc':'Find out more about the star ships within the Star Wars franchise','icon':'icon-death-star'},
-          {'title':'Species','url':'species','thumbnail':'http://osbproductions.co.uk/assets/images/directives/star-wars-lookup/speciesThumb.png','desc':'Find out more about the species within the Star Wars franchise','icon':'icon-wookie'},
+          {'title':'Starships','url':'starships','thumbnail':'http://osbproductions.co.uk/assets/images/directives/star-wars-lookup/shipsThumb.png','desc':'Find out more about the star ships within the Star Wars franchise','icon':'sw-icon icon-death-star'},
+          {'title':'Species','url':'species','thumbnail':'http://osbproductions.co.uk/assets/images/directives/star-wars-lookup/speciesThumb.png','desc':'Find out more about the species within the Star Wars franchise','icon':'sw-icon icon-wookie'},
           {'title':'Films','url':'films','thumbnail':'http://osbproductions.co.uk/assets/images/directives/star-wars-lookup/filmsThumb.png','desc':'Find out more about the films within the Star Wars franchise','icon':'fa fa-film'}
         ];
 
@@ -37,7 +49,7 @@ angular.module('oneStepBeyondApp')
         $scope.starWarsLookup.modal.open = false;
 
         // Pre load images
-        preloader.preloadImages($scope.starWarsLookup.images).then(
+        /*preloader.preloadImages($scope.starWarsLookup.images).then(
           function handleResolve(imageLocations) {
             // Loading was successful.
             $scope.starWarsLookup.isLoading = false;
@@ -55,7 +67,7 @@ angular.module('oneStepBeyondApp')
             $scope.starWarsLookup.loadPercentage = event.percent;
             //console.info('Percent loaded:', event.percent);
           }
-        );
+        );*/
 
         $scope.starWarsLookup.getSectionData = function(section) {
           $scope.starWarsLookup.sectionData = [];

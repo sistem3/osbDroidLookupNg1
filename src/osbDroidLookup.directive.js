@@ -9,6 +9,7 @@ angular.module('sistem3.osb-droid-lookup', ['osb-droid-lookup-template'])
         //console.log('Loading Star Wars Lookup directive');
         var baseUrl = 'http://swapi.co/api/';
         var wikiBaseUrl = 'http://en.wikipedia.org/w/api.php?action=query';
+        var wookieBaseUrl = '//starwars.wikia.com/api/v1';
         $scope.starWarsLookup = {};
         $scope.starWarsLookup.loadPercentage = 0;
         $scope.starWarsLookup.isLoading = true;
@@ -84,23 +85,23 @@ angular.module('sistem3.osb-droid-lookup', ['osb-droid-lookup-template'])
         };
 
         $scope.starWarsLookup.getThumbnail = function(searchName) {
-          var deferred = $q.defer();
-          $http({
-            url: wikiBaseUrl + '&titles=' + searchName + '&prop=imageinfo&iiprop=url&rawcontinue&format=json&callback=JSON_CALLBACK&generator=images',
-            method: 'jsonp'
-          }).success(function(data) {
-            //console.log(data.query.pages);
-            angular.forEach(data.query.pages, function(key, value) {
-              //console.log(key.imageinfo[0].url);
-              if (key.title.slice(-3) === 'png' || key.title.slice(-3) === 'PNG' || key.title.slice(-3) === 'jpg' || key.title.slice(-3) === 'JPG') {
-                //console.log(key.imageinfo[0].url);
-                deferred.resolve(key.imageinfo[0].url);
-              }
-            });
-            //deferred.resolve(data.data.items[0]);
-          });
-          return deferred.promise;
+          fetch(wookieBaseUrl + '/Search/List/?query=' + searchName + '&limit=25', {
+                mode: 'no-cors',
+                headers: {
+                  'Accept': 'application/json; charset=utf-8'
+                }
+              })
+              .then(function(response) {
+                console.log(response);
+                return response.json();
+              }).then(function(data) {
+                console.log(data);
+              }).catch(function() {
+                console.log("Booo");
+              });
         };
+
+        $scope.starWarsLookup.getThumbnail('Luke Skywalker');
 
         $scope.starWarsLookup.getContentExtract = function(searchName) {
           var deferred = $q.defer();
